@@ -2,7 +2,7 @@
 apiVersion: v1 #version of the API to use
 kind: Pod #What kind of object we're deploying
 metadata: #information about our object we're deploying
-  name: nginx-pod
+  name: nginx-pod-new
 spec: #specifications for our object
   containers:
   - name: nginx-container #the name of the container within the pod
