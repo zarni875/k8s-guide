@@ -1,4 +1,4 @@
-apiVersion: apps/v1 #version of the API to use
+apiVersion: apps/v1 #version of the apache2 API to use
 kind: Deployment #What kind of object we're deploying
 metadata: #information about our object we're deploying
   name: apache2-deployment #Name of the deployment
