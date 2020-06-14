@@ -18,8 +18,8 @@ spec:
     -
       addresses:
         -
-          ip: "172.104.184.40" #The IP Address of the external web server
+          ip: "10.44.0.5" #The IP Address of the external web server
       ports:
         -
-          port: 30022
+          port: 80
           name: "apache"
