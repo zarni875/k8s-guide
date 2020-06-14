@@ -33,4 +33,4 @@ spec: #specifications for our object
     nodePort: 30003
     protocol: TCP
   selector: #Label selector used to identify pods
-    app: napache2
+    app: apache2
