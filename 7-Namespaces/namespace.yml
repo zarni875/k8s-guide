@@ -1,15 +1,15 @@
 kind: Namespace
 apiVersion: v1
 metadata:
-  name: hollow-namespace
+  name: hollowteam
   labels:
-    name: hollow-namespace
+    name: hollowteam
 ---
 apiVersion: v1
 kind: Pod
 metadata:
   name: nginx
-  namespace: hollow-namespace
+  namespace: hollowteam
   labels:
     name: nginx
 spec:
