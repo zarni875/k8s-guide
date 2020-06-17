@@ -37,5 +37,5 @@ spec: #specifications for our object
     port: 1883
     targetPort: 9001
     protocol: TCP
-  selector: #Label selector used to identify pods
+  selector: #Label selector usedf to identify pods
     app: mqtt
