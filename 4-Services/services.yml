@@ -1,41 +1,37 @@
 apiVersion: apps/v1 #version of the apache2 API to use
 kind: Deployment #What kind of object we're deploying
 metadata: #information about our object we're deploying
-  name: mqtt-deployment #Name of the deployment
+  name: python-deployment #Name of the deployment
   labels: #A tag on the deployments created
-    app: mqtt
+    app: python
 spec: #specifications for our object
   replicas: 2 #The number of pods that should always be running
   selector: #which pods the replica set should be responsible for
     matchLabels:
-      app: mqtt #any pods with labels matching this I'm responsible for.
+      app: python #any pods with labels matching this I'm responsible for.
   template: #The pod template that gets deployed
     metadata:
       labels: #A tag on the replica sets created
-        app: mqtt
+        app: python
     spec:
       containers:
-      - name: mqtt-container #the name of the container within the pod
-        image: eclipse-mosquitto #which container image should be pulled
+      - name: python-container #the name of the container within the pod
+        image: yenaing/python_flask #which container image should be pulled
         ports:
-        - containerPort: 1883 #the port of the container within the pod
-        - containerPort: 9001 #the port of the container within the pod
+        - containerPort: 5000 #the port of the container within the pod
+       
        
 ---
 apiVersion: v1 #version of the API to use
 kind: Service #What kind of object we're deploying
 metadata: #information about our object we're deploying
-  name: ingress-mqtt #Name of the service
+  name: ingress-python #Name of the service
 spec: #specifications for our object
   type: NodePort #Ignore for now discussed in a future post
   ports: #Ignore for now discussed in a future post
-  - name: mqtt
-    port: 1883
-    targetPort: 1883
-    protocol: TCP
-  - name: mqtt1
-    port: 1883
-    targetPort: 9001
+  - name: python
+    port: 5000
+    targetPort: 5000
     protocol: TCP
   selector: #Label selector usedf to identify pods
-    app: mqtt
+    app: python
