@@ -16,9 +16,10 @@ spec: #specifications for our object
     spec:
       containers:
       - name: mqtt-container #the name of the container within the pod
-        image: yenaing/ubuntu_mosqutto #which container image should be pulled
+        image: eclipse-mosquitto #which container image should be pulled
         ports:
         - containerPort: 1883 #the port of the container within the pod
+        - containerPort: 9001 #the port of the container within the pod
        
 ---
 apiVersion: v1 #version of the API to use
@@ -31,6 +32,10 @@ spec: #specifications for our object
   - name: mqtt
     port: 1883
     targetPort: 1883
+    protocol: TCP
+  - name: mqtt1
+    port: 1883
+    targetPort: 9001
     protocol: TCP
   selector: #Label selector used to identify pods
     app: mqtt
