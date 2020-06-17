@@ -16,7 +16,7 @@ spec: #specifications for our object
     spec:
       containers:
       - name: mqtt-container #the name of the container within the pod
-        image: yenaing/ubuntu_mosqutto_python #which container image should be pulled
+        image: yenaing/ubuntu_mosqutto #which container image should be pulled
         ports:
         - containerPort: 1883 #the port of the container within the pod
        
