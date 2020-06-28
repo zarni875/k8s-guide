@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: liveness
+  name: liveness-http
+spec:
+  containers:
+  - name: liveness
+    image: theithollow/hollowapp-blog:liveness
+    livenessProbe:
+      httpGet:
+        path: /
+        port: 80
+      initialDelaySeconds: 3
+      periodSeconds: 3
+    readinessProbe:
+      httpGet:
+        path: /health
+        port: 80
+      initialDelaySeconds: 3
+      periodSeconds: 3
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: liveness
+spec:
+  selector:
+    app: liveness
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: liveness-ingress
+  namespace: default
+spec:
+  rules:
+  - host: liveness.theithollowlab.com
+    http:
+      paths:
+      - backend:
+          serviceName: liveness
+          servicePort: 80
