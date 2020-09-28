@@ -6,14 +6,14 @@ spec: #specifications for our object
   replicas: 2 #The number of pods that should always be running
   selector: #which pods the replica set should be responsible for
     matchLabels:
-      app: nginx #any pods with labels matching this I'm responsible for.
+      app: php #any pods with labels matching this I'm responsible for.
   template: #The pod template that gets deployed
     metadata:
       labels: #A tag on the pods created
-        app: nginx
+        app: php
     spec:
       containers:
-      - name: nginx-container #the name of the container within the pod
-        image: nginx #which container image should be pulled
+      - name: zarni-container #the name of the container within the pod
+        image: yenaing/php72 #which container image should be pulled
         ports:
         - containerPort: 80 #the port of the container within the pod
