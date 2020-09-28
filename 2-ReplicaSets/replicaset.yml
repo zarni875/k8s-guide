@@ -1,7 +1,7 @@
 apiVersion: apps/v1 #version of the API to use
 kind: ReplicaSet #What kind of object we're deploying
 metadata: #information about our object we're deploying
-  name: nginx-replicaset
+  name: zarni-replicaset
 spec: #specifications for our object
   replicas: 2 #The number of pods that should always be running
   selector: #which pods the replica set should be responsible for
