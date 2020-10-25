@@ -1,7 +1,7 @@
 apiVersion: apps/v1 #version of the API to use
 kind: Deployment #What kind of object we're deploying
 metadata: #information about our object we're deploying
-  name: zarni-deployment #Name of the deployment
+  name: zn-deployment #Name of the deployment
   labels: #A tag on the deployments created
     app: php
 spec: #specifications for our object
@@ -20,7 +20,7 @@ spec: #specifications for our object
         app: php
     spec:
       containers:
-      - name: zarni-container #the name of the container within the pod
+      - name: zn-container #the name of the container within the pod
         image: yenaing/php72 #which container image should be pulled
         ports:
         - containerPort: 80 #the port of the container within the pod
